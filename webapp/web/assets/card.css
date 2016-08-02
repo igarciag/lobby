@@ -1,0 +1,82 @@
+
+.card {
+    overflow: hidden;
+    background: #F8F8F8;
+    border: 1px solid #E7E7E7;
+    padding: 5px 5px 5px 35px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.card.react-draggable-dragging {
+    background: none;
+    border-color: #9ECF9E;
+}
+
+.react-grid-placeholder {
+    background: rgba(0, 255, 0, 0.2);;
+}
+
+.card .card-anchor {
+    cursor: all-scroll;
+}
+
+.card .card-header {
+    margin: 0 0px 16px 0px;
+    padding: 0 5px 7px 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.card.expanded .card-header {
+    border-bottom: solid 1px #E7E7E7;
+}
+
+.card .card-content {
+}
+
+.card .buttons {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.card .card-close {
+    position:absolute;
+    right: 0px;
+    top: 3px;
+    z-index: 10;
+}
+
+.card .card-menu {
+    position:absolute;
+    right: 27px;
+    top: 3px;
+    z-index: 10;
+}
+
+.card .card-move {
+    z-index: 10;
+    cursor: move;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 5px;
+    top: 16px;
+    transform: translate(0, -50%);
+    transition: null;
+}
+
+.card.expanded .card-move {
+    top: 50%;
+    height: 95%;
+    transition: top 0.2s ease-in-out, height 0.2s ease-in-out 0.3s;
+}
+
+.card .card-move .icon {
+    pointer-events: none;
+    transform: translate(0, -50%);
+    top: 50%;
+}

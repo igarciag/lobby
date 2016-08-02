@@ -1,0 +1,36 @@
+body {
+    padding: 70px 0 200px 0;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 30px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #f5f5f5;
+}
+
+
+.modal-content .tab-content {
+    padding-top: 10px;
+}
+
+.three-col {
+    -moz-column-count: 3;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 20px;
+    min-height: initial; /* fix chrome */
+    z-index: 0;          /* fix chrome */
+}
