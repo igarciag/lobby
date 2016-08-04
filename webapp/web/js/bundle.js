@@ -22225,7 +22225,13 @@
 	    var rpc = _context2['default'].instance().rpc;
 	    return function (dispatch) {
 	        dispatch({ type: LOAD_TABLE_REQUEST });
-	
+
+					//tableName = "joined";
+					var fileName = filePath.split("/");
+					filePath = "/app/data/"+fileName[fileName.length-1];
+					console.log("TABLENAME:", tableName);
+					console.log("FILEPATH", filePath);
+
 	        return rpc.call("IOSrv.read_csv", [tableName, filePath, schemaPath]).then(function (table) {
 	            return rpc.call("TableSrv.schema", [table]);
 	        }).then(function (schema) {
