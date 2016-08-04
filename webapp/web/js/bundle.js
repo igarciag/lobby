@@ -22227,10 +22227,11 @@
 	        dispatch({ type: LOAD_TABLE_REQUEST });
 
 					//tableName = "joined";
-					var fileName = filePath.split("/");
-					filePath = "/app/data/"+fileName[fileName.length-1];
+					/*var fileName = filePath.split("/");
+					filePath = "/app/data/"+fileName[fileName.length-1];*/
 					console.log("TABLENAME:", tableName);
 					console.log("FILEPATH", filePath);
+					console.log("SCHEMAPATH", schemaPath);
 
 	        return rpc.call("IOSrv.read_csv", [tableName, filePath, schemaPath]).then(function (table) {
 	            return rpc.call("TableSrv.schema", [table]);
@@ -29033,7 +29034,7 @@
 	                    datasets.push(schema.replace("_schema.json", ""));
 	                }
 	            });
-	            console.log("Available datasets:", datasets);
+	            console.log("Available datasets at "+dirPath+":", datasets);
 	            return datasets;
 	        }
 	    }, {
@@ -29047,12 +29048,16 @@
 	        key: 'readTable',
 	        value: function readTable(filePath) {
 	            var _this = this;
-	
+
+							console.log("PROPS:",this.props);
 	            var _props = this.props;
 	            var dispatch = _props.dispatch;
 	            var history = _props.history;
 	
 	            var destination = _path2['default'].join(config.destinationPath, _path2['default'].basename(filePath));
+	            //var destination = _path2['default'].join("/app/data", _path2['default'].basename(filePath));
+							console.log("DESTINATION:",destination);
+
 	
 	            try {
 	                if (fs.lstatSync(destination).isFile) {
@@ -29103,6 +29108,7 @@
 	                _react2['default'].createElement(
 	                    _fileDropper2['default'],
 	                    { onFileDrop: function (filePath) {
+															console.log("FILEPATH_DROPCSV:", filePath);
 	                            _this3.readTable(filePath);
 	                        } },
 	                    _react2['default'].createElement(

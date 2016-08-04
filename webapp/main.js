@@ -3,14 +3,18 @@
 const {app} = require('electron');
 const {BrowserWindow} = require('electron');
 
+var dirPath = '/tmp';
+if(process.argv.length > 2) dirPath = process.argv[2];
+
 var configuration = {
 	indyvaServer: 'localhost',
 	indyvaPath: 'ws',
 	indyvaPort: 19000,
-	destinationPath: '/tmp',
+//	destinationPath: '/tmp',
+	destinationPath: dirPath,
 	afterLobbyAppUrl: 'http://localhost:8888',
-//	indyvaTableName: 'preloadedTable'
-	indyvaTableName: 'joined'
+	indyvaTableName: 'preloadedTable'
+//	indyvaTableName: 'joined'
 };
 
 // So is visible by the render process remote.getGlobal('configuration')
